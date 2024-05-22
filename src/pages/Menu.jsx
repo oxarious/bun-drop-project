@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import useFetch from "../hooks/useFetch";
 
 const Menu = () => {
-  const { data: menu, loading, error } = useFetch("http://localhost:5174/menu");
+  const { data: menu, loading, error } = useFetch("http://localhost:5000/menu");
   const [filter, setFilter] = useState("");
   const { addToCart } = useContext(CartContext);
 

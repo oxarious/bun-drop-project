@@ -6,7 +6,7 @@
       "price": 8.99,
       "description": "A classic beef burger with lettuce, tomato, and cheese.",
       "category": "burgers",
-      "image": "/images/classic-burger.png"
+      "image": "/images/burger-1.png"
     },
     {
       "id": 2,
@@ -14,7 +14,103 @@
       "price": 4.99,
       "description": "Crispy sweet potato fries topped with fresh parsley.",
       "category": "sides",
-      "image": "/images/sweet-potato-fries.png"
+      "image": "/images/fries-1.png"
+    },
+    {
+      "id": 3,
+      "title": "Onion Rings",
+      "price": 3.99,
+      "description": "Crispy fried onion rings served with a side of ranch.",
+      "category": "sides",
+      "image": "/images/onionRings.png"
+    },
+    {
+      "id": 4,
+      "title": "Garlic Parmesan Fries",
+      "price": 4.99,
+      "description": "Golden fries tossed in garlic and parmesan cheese.",
+      "category": "sides",
+      "image": "/images/fries-1.png"
+    },
+    {
+      "id": 5,
+      "title": "Mozzarella Sticks",
+      "price": 5.99,
+      "description": "Breaded mozzarella sticks served with marinara sauce.",
+      "category": "sides",
+      "image": "/images/mozzarella-sticks.png"
+    },
+    {
+      "id": 6,
+      "title": "Cola",
+      "price": 1.99,
+      "description": "Refreshing cola served cold.",
+      "category": "drinks",
+      "image": "/images/cola.png"
+    },
+    {
+      "id": 7,
+      "title": "Lemonade",
+      "price": 2.49,
+      "description": "Freshly squeezed lemonade.",
+      "category": "drinks",
+      "image": "/images/lemonade.png"
+    },
+    {
+      "id": 8,
+      "title": "Iced Tea",
+      "price": 2.29,
+      "description": "Cool and refreshing iced tea.",
+      "category": "drinks",
+      "image": "/images/icetea.png"
+    },
+    {
+      "id": 9,
+      "title": "BBQ Bacon Burger",
+      "price": 9.99,
+      "description": "Beef patty with BBQ sauce, bacon, and cheddar cheese.",
+      "category": "burgers",
+      "image": "/images/bbq.png"
+    },
+    {
+      "id": 10,
+      "title": "Mushroom Swiss Burger",
+      "price": 8.99,
+      "description": "Beef patty with sautéed mushrooms and Swiss cheese.",
+      "category": "burgers",
+      "image": "/images/mushroom-burger.png"
+    },
+    {
+      "id": 11,
+      "title": "Veggie Burger",
+      "price": 7.99,
+      "description": "Grilled veggie patty with lettuce, tomato, and avocado.",
+      "category": "burgers",
+      "image": "/images/veggieBurger.png"
+    },
+    {
+      "id": 12,
+      "title": "Chocolate Cake",
+      "price": 4.99,
+      "description": "Rich and moist chocolate cake with a chocolate ganache.",
+      "category": "desserts",
+      "image": "/images/chocolate-cake.png"
+    },
+    {
+      "id": 13,
+      "title": "Cheesecake",
+      "price": 5.49,
+      "description": "Creamy cheesecake with a graham cracker crust.",
+      "category": "desserts",
+      "image": "/images/cheesecake.png"
+    },
+    {
+      "id": 14,
+      "title": "Ice Cream Sundae",
+      "price": 3.99,
+      "description": "Vanilla ice cream topped with chocolate sauce and a cherry.",
+      "category": "desserts",
+      "image": "/images/sundea.png"
     }
   ]
 }

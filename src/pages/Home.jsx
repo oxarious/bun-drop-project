@@ -5,7 +5,6 @@ function Home() {
   return (
     <div>
       <header>
-        <img src="/images/burger-1.png" alt="Bun Drop Logo" />
         <nav>
           <Link to="/menu">Menu</Link>
           <Link to="/cart">Cart</Link>
@@ -19,7 +18,6 @@ function Home() {
         <h2>Popular Items</h2>
         <div className="items">
           <div className="item">
-            <img src="/images/classic-burger.png" alt="Classic Burger" />
             <h3>Classic Burger</h3>
             <p>A classic beef burger with lettuce, tomato, and cheese.</p>
           </div>
