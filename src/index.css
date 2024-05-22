@@ -40,3 +40,17 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.menu-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px; /* Optional: for rounded corners */
+  margin: 10px;
+}
+
+.menu-item {
+  display: inline-block;
+  text-align: center;
+  width: 500px;
+  height: 400px;
+}

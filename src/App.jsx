@@ -13,10 +13,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/Menu" element={<Menu />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Payment" element={<Payment />} />
+          <Route path="/Confirmation" element={<Confirmation />} />
         </Routes>
       </Router>
     </CartProvider>
