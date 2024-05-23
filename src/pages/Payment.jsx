@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 function Payment() {
   const [formData, setFormData] = useState({
@@ -32,6 +33,13 @@ function Payment() {
 
   return (
     <div>
+      <header>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/">Menu</Link>
+          <Link to="/cart">Cart</Link>
+        </nav>
+      </header>
       <h1>Payment</h1>
       <form onSubmit={handleSubmit}>
         <label>

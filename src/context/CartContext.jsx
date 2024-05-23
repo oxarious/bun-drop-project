@@ -6,7 +6,12 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    setCart([...cart, { ...item, quantity: 1 }]);
+    var existingItems = cart.filter((c) => c.id == item.id);
+    if (existingItems && existingItems[0]) {
+      updateQuantity(item.id, existingItems[0].quantity + 1);
+    } else {
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
   };
 
   const removeItem = (id) => {
