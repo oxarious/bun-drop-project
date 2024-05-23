@@ -1,11 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import useFetch from "../hooks/useFetch";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const { data: menu, loading, error } = useFetch("http://localhost:5000/menu");
   const [filter, setFilter] = useState("");
+  const [categories, setCategories] = useState([]);
   const { addToCart } = useContext(CartContext);
+
+  useEffect(() => {
+    if (menu.length > 0) {
+      const uniqueCategories = [...new Set(menu.map((item) => item.category))];
+      setCategories(uniqueCategories);
+    }
+  }, [menu]);
 
   const filteredMenu = filter
     ? menu.filter((item) => item.category === filter)
@@ -17,15 +26,21 @@ const Menu = () => {
   return (
     <div>
       <header>
-        <h1>Menu</h1>
         <nav>
-          <button onClick={() => setFilter("")}>All</button>
-          <button onClick={() => setFilter("burgers")}>Burgers</button>
-          <button onClick={() => setFilter("sides")}>Sides</button>
-          <button onClick={() => setFilter("desserts")}>Desserts</button>
-          <button onClick={() => setFilter("drinks")}>Drinks</button>
+          <Link to="/">Home</Link>
+          <Link to="/cart">Cart</Link>
         </nav>
+        <h1>Menu</h1>
       </header>
+
+      <section className="filters">
+        <button onClick={() => setFilter("")}>All</button>
+        {categories.map((category) => (
+          <button key={category} onClick={() => setFilter(category)}>
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </button>
+        ))}
+      </section>
       <section className="menu-items">
         {filteredMenu.map((item) => (
           <div key={item.id} className="menu-item">

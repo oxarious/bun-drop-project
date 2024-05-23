@@ -9,6 +9,13 @@ function Cart() {
 
   return (
     <div>
+      <header>
+        <nav>
+          <Link to="/menu">Menu</Link>
+
+          <Link to="/">Home</Link>
+        </nav>
+      </header>
       <h1>Your Cart</h1>
       <ul>
         {cart.map((item) => (
