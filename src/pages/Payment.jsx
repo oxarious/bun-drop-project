@@ -39,6 +39,7 @@ function Payment() {
           <Link to="/">Menu</Link>
           <Link to="/cart">Cart</Link>
         </nav>
+        <img id="logo-black" src="/images/logo-black.png" alt="" />
       </header>
       <h1>Payment</h1>
       <form onSubmit={handleSubmit}>
