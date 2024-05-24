@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import useFetch from "../hooks/useFetch";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const { data: menu, loading, error } = useFetch("http://localhost:5000/menu");
   const [filter, setFilter] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [categories, setCategories] = useState([]);
   const { addToCart } = useContext(CartContext);
 
@@ -16,9 +17,11 @@ const Menu = () => {
     }
   }, [menu]);
 
-  const filteredMenu = filter
-    ? menu.filter((item) => item.category === filter)
-    : menu;
+  const filteredMenu = menu
+    .filter((item) => !filter || item.category === filter)
+    .filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -41,6 +44,12 @@ const Menu = () => {
             {category.charAt(0).toUpperCase() + category.slice(1)}
           </button>
         ))}
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </section>
       <section className="menu-items">
         {filteredMenu.map((item) => (
