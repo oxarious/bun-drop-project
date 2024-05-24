@@ -40,7 +40,7 @@ nav a:hover {
 
 .hero {
   text-align: center;
-  padding: 50px 0;
+  padding: 0px 0;
   background-color: #f8f8f8;
 }
 
@@ -166,4 +166,35 @@ footer {
 #logoColor {
   width: 150px;
   height: auto;
+}
+#logo-black {
+  height: 100px;
+}
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 20px 0;
+}
+
+.filters button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #e65a50;
+}
+
+.filters input {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
