@@ -19,9 +19,10 @@ export const CartProvider = ({ children }) => {
   };
 
   const updateQuantity = (id, quantity) => {
-    setCart(
-      cart.map((item) => (item.id === id ? { ...item, quantity } : item))
-    );
+    if (quantity >= 0)
+      setCart(
+        cart.map((item) => (item.id === id ? { ...item, quantity } : item))
+      );
   };
 
   const clearCart = () => {

@@ -11,32 +11,36 @@ function Cart() {
     <div>
       <header>
         <nav>
-          <Link to="/menu">Menu</Link>
-
           <Link to="/">Home</Link>
+          <Link to="/menu">Menu</Link>
         </nav>
+        <img id="logo-black" src="/images/logo-black.png" alt="" />
       </header>
-      <h1>Your Cart</h1>
-      <ul>
-        {cart.map((item) => (
-          <li key={item.id}>
-            <h3>{item.title}</h3>
-            <p>${item.price}</p>
-            <input
-              type="number"
-              value={item.quantity}
-              onChange={(e) =>
-                updateQuantity(item.id, parseInt(e.target.value))
-              }
-            />
-            <button onClick={() => removeItem(item.id)}>Remove</button>
-          </li>
-        ))}
-      </ul>
-      <h2>Total: ${total.toFixed(2)}</h2>
-      <Link to="/payment">
-        <button>Proceed to Payment</button>
-      </Link>
+      <section className="cart-content">
+        <h1>Your Cart</h1>
+        <ul className="cart-items">
+          {cart.map((item) => (
+            <li key={item.id} className="cart-item">
+              <img src={item.image} alt={item.title} />
+              <h3>{item.title}</h3>
+              <p>${item.price}</p>
+              <input
+                type="number"
+                value={item.quantity}
+                min="0"
+                onChange={(e) =>
+                  updateQuantity(item.id, parseInt(e.target.value))
+                }
+              />
+              <button onClick={() => removeItem(item.id)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+        <h2>Total: ${total.toFixed(2)}</h2>
+        <Link to="/payment">
+          <button>Proceed to Payment</button>
+        </Link>
+      </section>
     </div>
   );
 }

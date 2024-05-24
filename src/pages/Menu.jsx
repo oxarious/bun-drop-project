@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import useFetch from "../hooks/useFetch";
-import { Link } from "react-router-dom";
 
 const Menu = () => {
   const { data: menu, loading, error } = useFetch("http://localhost:5000/menu");
@@ -31,6 +31,7 @@ const Menu = () => {
           <Link to="/cart">Cart</Link>
         </nav>
         <h1>Menu</h1>
+        <img id="logo-black" src="/images/logo-black.png" alt="" />
       </header>
 
       <section className="filters">
