@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
+//Defines the Cart component
 function Cart() {
+  //Using cart context to accest cart stat and functions
   const { cart, updateQuantity, removeItem } = useContext(CartContext);
-
+  // Calculate the total cost of items in the cart
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
@@ -37,8 +39,9 @@ function Cart() {
           ))}
         </ul>
         <h2>Total: ${total.toFixed(2)}</h2>
-        <Link to="/payment">
-          <button>Proceed to Payment</button>
+
+        <Link to={cart.length === 0 ? "#" : "/payment"}>
+          <button disabled={cart.length === 0}>Proceed to Payment</button>
         </Link>
       </section>
     </div>

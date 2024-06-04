@@ -1,3 +1,5 @@
+//Imports React and necessary modules. Imports individual pages components.
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -10,6 +12,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
+    // Wraps the entire application with CartProvider to provide cart context
     <CartProvider>
       <Router>
         <div className="app-container">
