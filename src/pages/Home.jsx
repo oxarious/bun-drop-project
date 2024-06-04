@@ -46,9 +46,6 @@ function Home() {
           ))}
         </div>
       </section>
-      <footer>
-        <p>Contact us: info@bundrop.com</p>
-      </footer>
     </div>
   );
 }
