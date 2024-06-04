@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import useFetch from "../hooks/useFetch";
 
+// Define the Home component
 function Home() {
+  // Access the addToCart function from CartContext
   const { addToCart } = useContext(CartContext);
+
+  // Use the custom useFetch hook to fetch menu data from the API
   const { data: menu, loading, error } = useFetch("http://localhost:5000/menu");
+  // State to store popular items
   const [popularItems, setPopularItems] = useState([]);
 
+  // useEffect to filter and set popular items when menu data changes
   useEffect(() => {
     if (menu.length > 0) {
       const popular = menu.filter((item) => item.isPopular);

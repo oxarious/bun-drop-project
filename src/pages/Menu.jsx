@@ -2,14 +2,19 @@ import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
-
+// Define the Menu component
 const Menu = () => {
+  // Use the custom useFetch hook to fetch menu data from the API
   const { data: menu, loading, error } = useFetch("http://localhost:5000/menu");
+  // State to manage the category filter and search term
   const [filter, setFilter] = useState("");
+  // State to store the unique categories from the menu items
   const [searchTerm, setSearchTerm] = useState("");
   const [categories, setCategories] = useState([]);
+  // Access the addToCart function from CartContext
   const { addToCart } = useContext(CartContext);
 
+  // useEffect to set unique categories when menu data changes
   useEffect(() => {
     if (menu.length > 0) {
       const uniqueCategories = [...new Set(menu.map((item) => item.category))];
@@ -17,6 +22,7 @@ const Menu = () => {
     }
   }, [menu]);
 
+  // Filter the menu items based on selected category and search term
   const filteredMenu = menu
     .filter((item) => !filter || item.category === filter)
     .filter((item) =>
