@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
+// Define payment component
 function Payment() {
+  // State to manage form data and errors
   const [formData, setFormData] = useState({
     name: "",
     city: "",
@@ -20,10 +22,12 @@ function Payment() {
   const { clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
+  // Handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Validate form data
   const validate = () => {
     let errors = {};
     if (!/^[A-Za-z\s]+$/.test(formData.name)) {
@@ -35,26 +39,31 @@ function Payment() {
     if (!/^[A-Za-z\s]+$/.test(formData.street)) {
       errors.street = "Street must contain only letters.";
     }
-    if (!/^\d+$/.test(formData.swishNumber)) {
-      errors.swishNumber = "Swish number must contain only digits.";
+    if (formData.paymentMethod === "swish") {
+      if (!/^\d+$/.test(formData.swishNumber)) {
+        errors.swishNumber = "Swish number must contain only digits.";
+      }
     }
-    if (!/^\d+$/.test(formData.cardNumber)) {
-      errors.cardNumber = "Card number must contain only digits.";
-    }
-    if (!/^\d+$/.test(formData.cvv)) {
-      errors.cvv = "CVV must contain only digits.";
-    }
-    if (!/^\d{2}\/\d{2}$/.test(formData.expiryDate)) {
-      errors.expiryDate = "Expiry date must be in the format MM/YY.";
+    if (formData.paymentMethod === "card") {
+      if (!/^\d+$/.test(formData.cardNumber)) {
+        errors.cardNumber = "Card number must contain only digits.";
+      }
+      if (!/^\d+$/.test(formData.cvv)) {
+        errors.cvv = "CVV must contain only digits.";
+      }
+      if (!/^\d{2}\/\d{2}$/.test(formData.expiryDate)) {
+        errors.expiryDate = "Expiry date must be in the format MM/YY.";
+      }
     }
     return errors;
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      clearCart();
+      clearCart(); // Clear the cart after successful payment
       navigate("/confirmation");
     } else {
       setErrors(validationErrors);
